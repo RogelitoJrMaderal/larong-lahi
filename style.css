@@ -1,0 +1,904 @@
+/* Larong Lahi (structure + styling only) */
+
+:root {
+    --pale: #e3f2fd;
+    --light: #90caf9;
+    --mid: #2196f3;
+    --deep: #0d47a1;
+    --ink: #0a2540;
+    --paper: #ffffff;
+    --text-soft: #4a6b8a;
+    --radius: 18px;
+    --shadow: 0 10px 30px -12px rgba(13, 71, 161, 0.35);
+
+    --font-display: "Baloo 2", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Dark Mode variant */
+body .dark-kiosk {
+    --pale: #0c1a2b;
+    --light: #2c527a;
+    --mid: #5aa8f5;
+    --deep: #8ec4ff;
+    --ink: #eaf3ff;
+    --paper: #122a44;
+    --text-soft: #9db8d4;
+    --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.55);
+}
+
+/* Reset & base */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--pale);
+    color: var(--ink);
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+}
+
+
+
+/* Header */
+
+.kiosk-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 32px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.header-left h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.header-left p {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    margin-top: 2px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.search-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    width: 260px;
+    padding: 10px 64px 10px 18px;
+    border-radius: 999px;
+    border: 1.5px solid var(--light);
+    background: var(--pale);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#search-input::placeholder {
+    color: var(--text-soft);
+}
+
+#search-input:focus {
+    border-color: var(--mid);
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.18);
+}
+
+.search-count {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.72rem;
+    color: var(--text-soft);
+    background: var(--paper);
+    border: 1px solid var(--light);
+    border-radius: 999px;
+    padding: 3px 9px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1.5px solid var(--light);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    outline: none;
+}
+
+.theme-icon {
+    font-size: 1rem;
+}
+
+/* Welcome note (collapsed, reserved for JS) */
+
+#welcome-note {
+    width: 100%;
+    margin: 0;
+    padding: 0 32px;
+    text-align: center;
+    color: var(--deep);
+    background: var(--pale);
+    font-size: 0.9rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.35s ease, max-height 0.35s ease, padding 0.35s ease;
+}
+
+#welcome-note.show {
+    opacity: 1;
+    max-height: 60px;
+    padding: 14px 32px;
+}
+
+/* Main / intro */
+
+main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 32px 64px;
+}
+
+.intro {
+    max-width: 640px;
+    margin-bottom: 40px;
+}
+
+.intro h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.intro p {
+    font-size: 1rem;
+}
+
+/* Game grid & cards */
+
+#game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    position: relative;
+    background: var(--paper);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px -10px rgba(13, 71, 161, 0.25);
+    cursor: default;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover,
+.game-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+    outline: none;
+}
+
+.game-card:focus-visible {
+    outline: 2px solid var(--mid);
+    outline-offset: 2px;
+}
+
+.card-photo-wrap {
+    position: relative;
+    height: 160px;
+    width: 100%;
+}
+
+/* ============================================================
+   Larong Lahi Kiosk — palette: #e3f2fd  #90caf9  #2196f3  #0d47a1
+   ============================================================ */
+
+:root {
+    --pale: #e3f2fd;
+    --light: #90caf9;
+    --mid: #2196f3;
+    --deep: #0d47a1;
+    --ink: #0a2540;
+    --paper: #ffffff;
+
+    --bg: var(--pale);
+    --surface: var(--paper);
+    --text: var(--ink);
+    --text-soft: #4a6b8a;
+    --accent: var(--mid);
+    --accent-deep: var(--deep);
+    --card-border: var(--light);
+
+    --font-display: "Baloo 2", "Segoe UI", sans-serif;
+    --font-body: "Inter", "Segoe UI", sans-serif;
+    --radius: 18px;
+    --shadow: 0 10px 30px -12px rgba(13, 71, 161, 0.35);
+}
+
+/* Dark kiosk mode,*/
+body.dark-kiosk {
+    --bg: #071b34;
+    --surface: #0e2a4d;
+    --text: #3d7ed3;
+    --text-soft: #1460ad;
+    --accent: var(--light);
+    --accent-deep: var(--pale);
+    --card-border: #163b66;
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    transition: background 0.35s ease, color 0.35s ease;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    color: var(--text);
+    margin: 0;
+}
+
+p {
+    line-height: 1.55;
+    color: var(--text-soft);
+}
+
+/* ---------- header ---------- */
+.kiosk-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 22px 5vw;
+    background: var(--surface);
+    border-bottom: 1px solid var(--card-border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.accent-mark {
+    font-size: 1.6rem;
+    color: var(--accent);
+}
+
+.kiosk-header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.header-sub {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.search-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 10px 90px 10px 16px;
+    border-radius: 999px;
+    border: 1.5px solid var(--card-border);
+    background: var(--bg);
+    color: var(--text);
+    width: 240px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#search-input:focus {
+    border-color: var(--accent);
+}
+
+.search-count {
+    position: absolute;
+    right: 12px;
+    font-size: 0.75rem;
+    color: var(--text-soft);
+    pointer-events: none;
+}
+
+#theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent-deep);
+    color: var(--surface);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#theme-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+#theme-toggle:active {
+    transform: translateY(0);
+}
+
+/* ---------- welcome note (load event target) ---------- */
+#welcome-note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--accent-deep);
+    background: var(--light);
+    padding: 8px;
+    margin: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.4s ease, max-height 0.4s ease, padding 0.4s ease;
+}
+
+#welcome-note.show {
+    opacity: 1;
+    max-height: 60px;
+    padding: 10px 8px;
+}
+
+/* ---------- main ---------- */
+main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 5vw 10px;
+}
+
+.intro {
+    max-width: 640px;
+    margin-bottom: 36px;
+}
+
+.intro h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+#game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    position: relative;
+    background: var(--surface);
+    border: 1.5px solid var(--card-border);
+    border-radius: var(--radius);
+    cursor: default;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.game-card:hover,
+.game-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.game-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.card-photo {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1.5px solid var(--card-border);
+}
+
+.card-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 16px 18px 6px;
+    text-transform: capitalize;
+}
+
+.card-players {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 18px 18px;
+}
+
+/* hover reveal panel — shown/hidden via mouseover/mouseout in script.js.
+   Sits over the photo only, so the name/players stay visible below it. */
+.card-reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    background: rgba(13, 71, 161, 0.88);
+    color: #fff;
+    padding: 16px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.card-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#empty-state {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-soft);
+}
+
+#empty-state.show {
+    display: block;
+}
+
+/* ---------- suggest form ---------- */
+.suggest {
+    max-width: 1080px;
+    margin: 60px auto 0;
+    padding: 32px 5vw;
+    background: var(--surface);
+    border-radius: 22px 22px 0 0;
+}
+
+.suggest h2 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+#suggest-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+#suggest-form input {
+    flex: 1 1 200px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--card-border);
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#suggest-form input:focus {
+    border-color: var(--accent);
+}
+
+#suggest-form button {
+    padding: 11px 22px;
+    border: none;
+    border-radius: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+#suggest-form button:hover {
+    background: var(--accent-deep);
+}
+
+#suggest-message {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    min-height: 1.2em;
+}
+
+#suggest-message.success {
+    color: var(--accent-deep);
+    font-weight: 600;
+}
+
+#suggest-message.error {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+/* ---------- footer ---------- */
+.kiosk-footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px 5vw 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: var(--text-soft);
+}
+
+.kiosk-footer kbd {
+    background: var(--bg);
+    border: 1px solid var(--card-border);
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-size: 0.78rem;
+}
+
+#dismiss-tip {
+    margin-top: 6px;
+    border: none;
+    background: none;
+    color: var(--accent);
+    font-size: 0.78rem;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+}
+
+@media (max-width: 640px) {
+    .kiosk-header {
+        padding: 16px 5vw;
+    }
+
+    #search-input {
+        width: 100%;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.card-photo {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 14px 16px 18px;
+}
+
+.card-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    margin-left: 4px;
+}
+
+.card-players {
+    font-size: 0.82rem;
+    color: var(--mid);
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.card-reveal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background: rgba(13, 71, 161, 0.88);
+    color: #ffffff;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.card-reveal.visible {
+    opacity: 1;
+}
+
+/* =========================================================
+   Empty state
+   ========================================================= */
+
+#empty-state {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 0.95rem;
+    color: var(--text-soft);
+}
+
+/* =========================================================
+   Suggest a game panel
+   ========================================================= */
+
+.suggest {
+    background: var(--paper);
+    border-radius: 22px 22px 0 0;
+    padding: 48px 32px 56px;
+    margin-top: 24px;
+    transition: background-color 0.3s ease;
+}
+
+.suggest-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.suggest h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#suggest-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+#suggest-form input[type="text"] {
+    flex: 1 1 220px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid var(--light);
+    background: var(--pale);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#suggest-form input[type="text"]::placeholder {
+    color: var(--text-soft);
+}
+
+#suggest-form input[type="text"]:focus {
+    border-color: var(--mid);
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.18);
+}
+
+#suggest-form button {
+    flex: 0 0 auto;
+    padding: 12px 26px;
+    border: none;
+    border-radius: 12px;
+    background: var(--mid);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#suggest-form button:hover,
+#suggest-form button:focus-visible {
+    background: var(--deep);
+    outline: none;
+}
+
+#suggest-message {
+    width: 100%;
+    margin-top: 6px;
+    font-size: 0.88rem;
+    min-height: 1.2em;
+}
+
+#suggest-message.success {
+    color: var(--deep);
+}
+
+#suggest-message.error {
+    color: #c62828;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.kiosk-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 24px 32px 40px;
+    font-size: 0.82rem;
+    color: var(--text-soft);
+}
+
+.footer-tip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+kbd {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    background: var(--paper);
+    border: 1px solid var(--light);
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    padding: 2px 7px;
+    color: var(--ink);
+}
+
+#dismiss-tip {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-soft);
+    font-size: 0.82rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+#dismiss-tip:hover,
+#dismiss-tip:focus-visible {
+    color: var(--deep);
+    outline: none;
+}
+
+
+/* =========================================================
+Responsive
+   ========================================================= */
+
+@media (max-width: 640px) {
+    .kiosk-header {
+        flex-wrap: wrap;
+        padding: 14px 18px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-shell {
+        flex: 1 1 auto;
+    }
+
+    #search-input {
+        width: 100%;
+    }
+
+    main {
+        padding: 36px 18px 48px;
+    }
+
+    .suggest {
+        padding: 36px 18px 44px;
+    }
+
+    .kiosk-footer {
+        padding: 20px 18px 32px;
+        justify-content: flex-start;
+    }
+}

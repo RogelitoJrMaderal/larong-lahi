@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larong Lahi — Street games from the barangay</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="kiosk-header">
+        <div class="header-left">
+            <div>
+                <h1>Larong Lahi</h1>
+                <p class="header-sub">Street games from the Philippine barangay.</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="search-shell">
+                <input type="text" id="search-input" placeholder="Search a game…">
+            </div>
+            <button id="theme-toggle" type="button">
+                <span class="theme-label">Dark Mode</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Twelve games, one afternoon, zero equipment budget</h2>
+            <p>
+                Long before consoles and data plans, Filipino barangays ran on chalk lines,
+                rubber bands, tin cans, and whatever slippers were closest to the door.
+                These twelve games only need a patch of pavement, a few playmates, and
+                someone willing to be "it" first.
+            </p>
+        </section>
+
+        <div id="game-grid">
+
+            <article class="game-card" tabindex="0" data-name="Patintero" data-players="6–10 players, two teams"
+                data-desc="Teams cross a grid of chalk lines without getting tagged by defenders guarding each lane.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/patintero.jpg"
+                        alt="Children playing Patintero on a chalk-lined court">
+                    <div class="card-reveal">Ang Patintero ay isang larong Pinoy kung saan kailangang tumawid ang
+                        mga manlalaro sa mga linyang binabantayan ng mga taya nang hindi nahuhuli upang makakuha ng
+                        puntos.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Patintero</h3>
+                    <p class="card-players">6–10 players, two teams</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Tumbang Preso" data-players="4–8 players"
+                data-desc="Knock over a can with a slipper, then dash to reclaim it before the guard tags you.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/tumbang-preso.jpg"
+                        alt="A tin can knocked over with slippers scattered nearby">
+                    <div class="card-reveal">Ang Tumbang Preso ay isang larong Pinoy kung saan gagamit ang mga
+                        manlalaro ng tsinelas upang patumbahin ang isang lata habang ito ay binabantayan ng taya.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Tumbang Preso</h3>
+                    <p class="card-players">4–8 players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Luksong Tinik" data-players="3–6 players"
+                data-desc="Leap over a rising 'thorn' of stacked hands and feet without touching it.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/luksong-tinik.jpg"
+                        alt="Children jumping over a stacked hands-and-feet obstacle">
+                    <div class="card-reveal">Ang Luksong Tinik ay isang larong Pinoy kung saan tumatalon ang mga
+                        manlalaro sa ibabaw ng mga nakatumpok na kamay at paa ng mga taya nang hindi ito nadadapa.
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Luksong Tinik</h3>
+                    <p class="card-players">3–6 players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Luksong Baka" data-players="3–8 players"
+                data-desc="Vault over a bent-over playmate, who stands a little taller after every clean jump.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/luksong-baka.jpg"
+                        alt="A child vaulting over a bent-over playmate">
+                    <div class="card-reveal">Ang Luksong Baka ay isang larong Pinoy kung saan tumatalon ang mga
+                        manlalaro sa ibabaw ng nakayukong taya gamit ang mga kamay na nakatukod sa likod nito.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Luksong Baka</h3>
+                    <p class="card-players">3–8 players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Piko" data-players="2–4 players"
+                data-desc="Filipino hopscotch — toss a marker, hop through the chalk grid, and skip the box it lands in.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/piko.jpg" alt="A hopscotch grid drawn in chalk on pavement">
+                    <div class="card-reveal">Ang Piko ay isang larong Pinoy kung saan naghahagis ng pamato sa mga kahon
+                        sa lupa at lumulukso gamit ang isang paa upang kunin ito nang hindi natatapak sa linya.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Piko</h3>
+                    <p class="card-players">2–4 players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Sungka" data-players="2 players"
+                data-desc="Scoop shells around a carved wooden board, sowing one per pit to empty your rival's house.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/sungka.jpg" alt="A wooden sungka board filled with shells">
+                    <div class="card-reveal">Ang Sungka ay isang larong Pinoy kung saan naglilipat ng mga sigay o bato
+                        sa mga hukay ng maderang sungkaan upang makaimbak ng pinakamaraming puntos.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Sungka</h3>
+                    <p class="card-players">2 players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Agawan Base" data-players="6–12 players, two teams"
+                data-desc="Raid the other team's base and sprint home again without getting caught in enemy territory.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/agawan-base.jpg"
+                        alt="Children racing between two bases in an open field">
+                    <div class="card-reveal">Ang Agawan Base ay isang larong Pinoy kung saan nag-uunahan ang dalawang
+                        koponan na humawak sa base ng kalaban nang hindi nahuhuli ng mga taya.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Agawan Base</h3>
+                    <p class="card-players">6–12 players, two teams</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Palo Sebo" data-players="Any number, one at a time"
+                data-desc="Climb a greased bamboo pole for the flag and prize tied at the very top.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/palo-sebo.jpg"
+                        alt="A greased bamboo pole with a flag tied at the top">
+                    <div class="card-reveal">Ang Palo Sebo ay isang larong Pinoy kung saan nag-uunahang umakyat ang mga
+                        kalahok sa madulas na kawayan upang makuha ang premyo sa tuktok.
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Palo Sebo</h3>
+                    <p class="card-players">Any number, one at a time</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Taguan" data-players="4+ players"
+                data-desc="Filipino hide-and-seek — one player counts at 'It' while everyone else vanishes around the block.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/taguan.jpg"
+                        alt="A child peeking out from behind a wall while hiding">
+                    <div class="card-reveal">Ang Taguan ay isang larong Pinoy kung saan nagtatago ang mga manlalaro
+                        habang nagbibilang ang taya bago sila hanapin at hulihin.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Taguan</h3>
+                    <p class="card-players">4+ players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Chinese Garter" data-players="3+ players"
+                data-desc="Limbo under a stretchy rubber-band line that climbs higher with every round survived.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/chinese-garter.jpg"
+                        alt="Two children holding a stretched rubber-band garter line">
+                    <div class="card-reveal">Ang Chinese Garter ay isang larong Pinoy kung saan tumatalon ang mga
+                        manlalaro sa ibabaw ng garter sa iba't ibang taas nang hindi napapatid.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Chinese Garter</h3>
+                    <p class="card-players">3+ players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Kadang-kadang" data-players="1–6 players"
+                data-desc="Balance and race on tin-can stilts strung with twine, one careful stride at a time.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/kadang-kadang.jpg"
+                        alt="A pair of tin-can stilts strung with twine">
+                    <div class="card-reveal">Ang Kadang-Kadang Kawayan ay isang larong Pinoy kung saan nag-uunahang
+                        tumakbo o maglakad ang mga manlalaro papunta sa matatapos na linya gamit ang matataas na kawayan
+                        na may tuntungan ng paa at hawakan.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Kadang-kadang</h3>
+                    <p class="card-players">1–6 players</p>
+                </div>
+            </article>
+
+            <article class="game-card" tabindex="0" data-name="Langit Lupa" data-players="4–10 players"
+                data-desc="Freeze on 'langit' (elevated ground) so the tagger below can't reach you — 'lupa' means you're fair game.">
+                <div class="card-photo-wrap">
+                    <img class="card-photo" src="images/langit-lupa.jpg"
+                        alt="Children standing on raised curbs and steps above the ground">
+                    <div class="card-reveal">Ang Langit Lupa ay isang larong Pinoy kung saan hinahabol ng taya ang mga
+                        manlalaro na ligtas lamang kapag nakatapak sa mataas na pwesto.</div>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-name">Langit Lupa</h3>
+                    <p class="card-players">4–10 players</p>
+                </div>
+            </article>
+
+        </div>
+        <p id="empty-state">No game matches that search…</p>
+    </main>
+
+    <section class="suggest">
+        <div class="suggest-inner">
+            <h2>Know a game we're missing?</h2>
+            <form id="suggest-form" novalidate>
+                <input type="text" id="suggest-name" name="suggest-name" placeholder="Game name" required>
+                <input type="text" id="suggest-place" name="suggest-place" placeholder="Where you played it (optional)">
+                <button type="submit">Suggest game</button>
+                <p id="suggest-message"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="kiosk-footer">
+        <div class="footer-tip">
+            <span>Tip: press <kbd>/</kbd> to jump straight to the search box</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
